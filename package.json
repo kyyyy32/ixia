@@ -1,0 +1,17 @@
+{
+  "name": "asisten-ai-sekolah",
+  "version": "1.0.0",
+  "description": "Website sekolah dengan chatbot AI (Express.js + Google GenAI)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "multer": "latest"
+  }
+}
