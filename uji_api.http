@@ -1,0 +1,71 @@
+### 1. Teks
+POST http://localhost:3000/tanya-ai
+Content-Type: application/json
+
+{
+  "pertanyaan": "Jelaskan apa itu fotosintesis dalam 2 kalimat"
+}
+
+### 2. Gambar (taruh kopi.jpg di folder ini)
+POST http://localhost:3000/analisis-gambar
+Content-Type: multipart/form-data; boundary=BatasFormGambar
+
+--BatasFormGambar
+Content-Disposition: form-data; name="instruksi"
+
+Ada berapa objek di foto ini?
+--BatasFormGambar
+Content-Disposition: form-data; name="gambar"; filename="kopi.jpg"
+Content-Type: image/jpeg
+
+< ./kopi.jpg
+--BatasFormGambar--
+
+### 3. Dokumen (taruh materi ke 2.pdf di folder ini)
+POST http://localhost:3000/analisis-dokumen
+Content-Type: multipart/form-data; boundary=BatasFormDokumen
+
+--BatasFormDokumen
+Content-Disposition: form-data; name="instruksi"
+
+Sebutkan 3 poin utama dari dokumen ini
+--BatasFormDokumen
+Content-Disposition: form-data; name="dokumen"; filename="materi ke 2.pdf"
+Content-Type: application/pdf
+
+< ./materi ke 2.pdf
+--BatasFormDokumen--
+
+### 4a. Audio (audio.mp3 kurang dari 15 detik)
+POST http://localhost:3000/transkrip-audio
+Content-Type: multipart/form-data; boundary=BatasFormAudio
+
+--BatasFormAudio
+Content-Disposition: form-data; name="audio"; filename="audio.mp3"
+Content-Type: audio/mpeg
+
+< ./audio.mp3
+--BatasFormAudio--
+
+### 4b. Video (video.mp4 kurang dari 15 detik)
+POST http://localhost:3000/analisis-video
+Content-Type: multipart/form-data; boundary=BatasFormVideo
+
+--BatasFormVideo
+Content-Disposition: form-data; name="instruksi"
+
+Ada aktivitas apa saja dalam video ini?
+--BatasFormVideo
+Content-Disposition: form-data; name="video"; filename="video.mp4"
+Content-Type: video/mp4
+
+< ./video.mp4
+--BatasFormVideo--
+
+### 5. Ide gambar
+POST http://localhost:3000/buat-gambar
+Content-Type: application/json
+
+{
+  "deskripsi": "Ilustrasi robot AI ramah sedang mengajar di depan kelas SMK, gaya anime"
+}

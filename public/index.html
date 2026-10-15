@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMK Nusantara Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#"><span class="logo">N</span>SMK Budi Utomo</a>
+    <nav>
+      <a href="#jurusan">Jurusan</a>
+      <a href="#asisten">Asisten AI</a>
+      <a href="#berita">Kabar sekolah</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Tempat siswa belajar membuat teknologi, bukan hanya memakainya.</h1>
+        <p>Dari kode pertama sampai proyek yang dipakai orang lain. Pendaftaran siswa baru dibuka, dan Asisten AI kami siap menjawab pertanyaanmu.</p>
+        <a class="btn" href="#kontak">Daftar sekarang</a>
+      </div>
+
+      <div class="hero-chat" aria-label="Tanya Asisten AI">
+        <div class="bubble bot">Halo! Aku Asisten AI sekolah. Mau tahu apa hari ini?</div>
+        <div class="chips">
+          <button data-q="Jurusan apa saja yang ada di sekolah ini?">Jurusan apa saja?</button>
+          <button data-q="Apa saja yang dipelajari di jurusan PPLG?">Belajar apa di PPLG?</button>
+          <button data-q="Bagaimana cara mendaftar sebagai siswa baru?">Cara mendaftar</button>
+        </div>
+        <form id="heroForm">
+          <input id="heroInput" type="text" placeholder="Tulis pertanyaanmu di sini" aria-label="Pertanyaan">
+          <button type="submit" class="btn">Tanya</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="jurusan" class="section">
+      <h2>Jurusan</h2>
+      <ul class="rows">
+        <li><strong>PPLG</strong><span>Pengembangan Perangkat Lunak dan Gim. Web, aplikasi, gim, dan kecerdasan artifisial.</span></li>
+        <li><strong>TJKT</strong><span>Teknik Jaringan Komputer dan Telekomunikasi. Jaringan, server, dan keamanan siber.</span></li>
+        <li><strong>DKV</strong><span>Desain Komunikasi Visual. Ilustrasi, branding, animasi, dan produksi konten.</span></li>
+        <li><strong>AKL</strong><span>Akuntansi dan Keuangan Lembaga. Pembukuan digital dan pengelolaan keuangan.</span></li>
+      </ul>
+    </section>
+
+    <section id="asisten" class="section alt">
+      <h2>Yang bisa dilakukan Asisten AI</h2>
+      <p class="lead">Klik salah satu untuk langsung mencoba di jendela chat.</p>
+      <div class="modes">
+        <button data-mode="tanya"><b>Tanya jawab</b><span>Pelajaran, info sekolah, tugas</span></button>
+        <button data-mode="gambar"><b>Analisis gambar</b><span>Unggah foto, minta penjelasan</span></button>
+        <button data-mode="dokumen"><b>Ringkas dokumen</b><span>PDF atau TXT jadi poin utama</span></button>
+        <button data-mode="audio"><b>Transkrip audio</b><span>Suara pendek menjadi teks</span></button>
+        <button data-mode="video"><b>Analisis video</b><span>Jelaskan isi video pendek</span></button>
+        <button data-mode="buat"><b>Ide gambar</b><span>Resep prompt untuk gambar AI</span></button>
+      </div>
+    </section>
+
+    <section id="berita" class="section">
+      <h2>Kabar sekolah</h2>
+      <ul class="rows">
+        <li><strong>12 Okt 2026</strong><span>Siswa PPLG meluncurkan aplikasi perpustakaan digital untuk seluruh kelas.</span></li>
+        <li><strong>3 Okt 2026</strong><span>Tim DKV meraih juara 2 lomba poster tingkat provinsi.</span></li>
+        <li><strong>25 Sep 2026</strong><span>Kunjungan industri TJKT ke pusat data di Jakarta.</span></li>
+      </ul>
+    </section>
+
+    <section id="kontak" class="section alt">
+      <h2>Kontak</h2>
+      <p>Jl. Pendidikan No. 1, Jakarta &nbsp;|&nbsp; (021) 555-0123 &nbsp;|&nbsp; info@smknusantara.sch.id</p>
+      <p>Senin sampai Jumat, 07.00 sampai 15.00 WIB.</p>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 SMK Nusantara Digital</footer>
+
+  <!-- Widget chat -->
+  <button id="chatFab" class="fab" aria-label="Buka chat Asisten AI" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+  </button>
+
+  <section id="chatPanel" class="panel" hidden aria-label="Asisten AI">
+    <div class="p-head">
+      <div><strong>Asisten AI Sekolah</strong><small>Biasanya menjawab dalam beberapa detik</small></div>
+      <button id="chatClose" aria-label="Tutup chat">&times;</button>
+    </div>
+    <div id="modeBar" class="p-modes"></div>
+    <div id="msgs" class="msgs" aria-live="polite"></div>
+    <div id="fileChip" class="file-chip" hidden></div>
+    <form id="chatForm" class="p-input">
+      <button type="button" id="attachBtn" class="icon" aria-label="Lampirkan berkas" hidden>+</button>
+      <input type="file" id="fileInput" hidden>
+      <input type="text" id="chatText" autocomplete="off" aria-label="Pesan">
+      <button type="submit" class="send" aria-label="Kirim">&#10148;</button>
+    </form>
+  </section>
+
+  <script src="chat.js"></script>
+</body>
+</html>
