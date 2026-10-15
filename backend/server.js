@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 const gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-const MODEL_NAME = process.env.MODEL_NAME || 'gemini-3.5-flash-lite';
+const MODEL_NAME = process.env.MODEL_NAME || 'gemini-3.6-flash';
 const PORT = process.env.PORT || 3000;
 
 // ===== SYSTEM INSTRUCTION =====
